@@ -1,13 +1,10 @@
 {
   "extensions": {
-    "store/home/sections/0": {
-      "component": "LatestPromo"
+    "store/home/sections/7": {
+      "component": "ListProducts"
     },
-    "store/home/sections/6": {
-      "component": "index"
-    },
-    "store/product/sections/5": {
-      "component": "index"
+    "store/product/sections/9": {
+      "component": "ListProducts"
     }
   }
 }
