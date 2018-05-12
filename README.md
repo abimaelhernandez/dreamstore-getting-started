@@ -117,7 +117,7 @@ ListProducts.getSchema = (props) => {
 }
 ```
 
-It allows setting the max number of items shown per page. To use it, click in the edit button on the lower left corner and then click on the product list. A form should appear having the maxItems setting based on the schema, change the default value and save. The number of items shown should change accordingly.
+It allows setting the max number of items shown per page. To use it, click in the edit button on the lower right corner and then click on the product list. A form should appear having the maxItems setting based on the schema, change the default value and save. The number of items shown should change accordingly.
 
 ## GraphQL
 Any usefull component needs data. GraphQL is the solution for data fetching inside the VTEX IO platform. 
