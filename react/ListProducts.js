@@ -12,13 +12,32 @@ import listProductsQuery from './graphql/listProducts.graphql'
 // Default maxItems to show
 const MAX_ITEMS = 3
 
+// This is just an usual React component
+class ListProducts extends Component {
+  render () {
+    const {
+      maxItems, // This comes from the schema
+      data: {   // This comes from the GraphQL Query
+        loading,
+        products
+      }
+    } = this.props
+
+    return (
+      <div>
+      <div className="mh5-ns f4">{products && products.slice(0, maxItems).map(product => (<Product key={product.productId} product={product}/>))}</div>
+      </div>
+    )
+  }
+}
+
 // Defining propTypes correctly is very important for react+graphql integration
 ListProducts.defaultProps = {
   maxItems: MAX_ITEMS
 }
 
 ListProducts.propTypes = {
-  maxItems: PropTypes.int,
+  maxItems: PropTypes.number,
 }
 
 // JSON Schema with in-app settings.
@@ -35,25 +54,6 @@ ListProducts.getSchema = (props) => {
         default: ListProducts.defaultProps.maxItems,
       },
     },
-  }
-}
-
-// This is just an usual React component
-class ListProducts extends Component {
-  render () {
-    const {
-      maxItems, // This comes from the schema
-      data: {   // This comes from the GraphQL Query
-        loading,
-        products
-      }
-    } = this.props
-
-    return (
-      <div>
-      <div className="mh5-ns f4">{products && products.slice(0, maxItems).map(product => (<Product product={product}/>))}</div>
-      </div>
-    )
   }
 }
 
