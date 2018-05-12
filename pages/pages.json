@@ -2,9 +2,6 @@
   "extensions": {
     "store/home/sections/7": {
       "component": "ListProducts"
-    },
-    "store/product/sections/9": {
-      "component": "ListProducts"
     }
   }
 }
