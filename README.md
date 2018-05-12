@@ -1,5 +1,5 @@
 # Dreamstore getting started
-###Welcome to Dreamstore Getting Started !!! 
+### Welcome to Dreamstore Getting Started !
 
 In this tutorial you will learn how to implement a simple component in Dreamstore. By the end of this lesson, you will be able to create your own extension component consuming VTEX IO's APIs
 
@@ -35,7 +35,7 @@ where `{{workspacename}}` is your favorite name for a workspace
 
 You can check your current workspace by entering on `https://{{workspace}}--{{account}}.myvtex.com`. This page is the raw Dreamstore having one search bar, followed by a banner and a shelf. 
 
-TODO: INSERT FIGURE HERE
+![Imgur](https://i.imgur.com/fibjE5Y.png)
 
 The current Dreamstore is awesome, but a little customization is always welcome, so let's add our own component bellow the existing shelf. Our component will be a very simple product list showing the available products in the store. Go back to the terminal, create a new host folder and type
 ```sh
@@ -65,7 +65,7 @@ $ vtex link
 
 Now visit your store (`https://{{workspace}}--{{account}}.myvtex.com`) again. You will see the product list just bellow the shelf.
 
-TODO: IMAGE WITH CHANGES
+![Imgur](https://i.imgur.com/w6RoqYm.png)
 
 Congratulations, you have a working app in VTEX IO ! Easy right ? Keep reading this document to learn more on how to customize the component. 
 
