@@ -1,12 +1,12 @@
-# DreamStore getting started
-Welcome to Dreamstore Getting Started !!! 
+# Dreamstore getting started
+###Welcome to Dreamstore Getting Started !!! 
 
-In this tutorial you will learn how to implement a simple component in dreamstore. By the end of this lesson, you will be able to publish and install your awesome app right in your store
+In this tutorial you will learn how to implement a simple component in Dreamstore. By the end of this lesson, you will be able to create your own extension component consuming VTEX IO's APIs
 
-This document is devided in five parts. The first one contains quick warming up section explaining core VTEX IO concepts and how to set up correctly for working with dreamstore. The second part makes an overview in the directory structure and in the app's manifest. The third step consists in explaining how to work with *Pages* and how to place your component where you want. The fourth part focuses on actually creating the component, while the fifth shows how to connect to the backend.
+This document is devided in five parts. The first one contains a quick warming up section explaining core VTEX IO concepts and how to set up correctly for working with Dreamstore. The second part makes an overview in the directory structure and in the app's manifest. The third step consists in explaining how to work with *Pages* and how to place your component where you want. The fourth part focuses on actually creating the component, while the fifth shows how to connect to the backend.
 
 ## Warming up
-This tutorial uses VTEX IO. This platform is the new way of developing and delivering reactive components throughout VTEX infrastructure. IO has great features and is backed by industry leading technologies React and GraphQL. Keep in mind these references in case you need some help with them
+This tutorial uses VTEX IO. This platform is the new way of developing and delivering reactive components throughout VTEX infrastructure. IO has great features and is backed by industry leading technologies **React** and **GraphQL**. Keep in mind these references in case you need some help with them
 - React 
   - https://reactjs.org/docs/hello-world.html
   - https://reactjs.org/tutorial/tutorial.html
@@ -14,7 +14,7 @@ This tutorial uses VTEX IO. This platform is the new way of developing and deliv
   - https://graphql.org/learn/
   - https://www.howtographql.com/
 
-VTEX IO is a serverless platform, meaning that you require no, to almost no, local setup and you can focus on your awesome app quickly. The only app you will ever have to install locally is the `vtex` toolbelt. Luckly, it's backed up by NodeJS, which makes it very easy to install and update. First, install [`yarn`](https://yarnpkg.com/lang/en/docs/install/#mac-stable), and then open a terminal and run
+VTEX IO is a serverless platform, meaning that you require no, to almost no, local setup and you can focus entirely on your awesome app. The only app you will ever have to install locally is the `vtex` toolbelt. Luckly, it's backed up by NodeJS, which makes it very easy to install and update. First, install [`yarn`](https://yarnpkg.com/lang/en/docs/install/#mac-stable), and then open a terminal and run
 ```sh
 $ yarn global add vtex
 ```
@@ -25,7 +25,7 @@ $ vtex login -a {{account}}
 ```
 where `{{account}}` is your vtex account. 
 
-VTEX IO is havely based on the concept of *workspaces* and taking a minute to understand them will enable you to develop even **faster**. A *workspace* is a status of your store/account where you can develop, install and modify apps settings without interfering in your production store. After your are done with your modifications, you can `promote` your changes to master if you are satisfied or `reset` your entire workspace if you want to restart. Since we are developing our first awesome component, let's use our own workspace by typing
+VTEX IO is heavily based on the concept of *workspaces* and taking a minute to understand them will enable you to develop even **faster**. A *workspace* is a status of your store/account where you can develop, install and modify apps settings without interfering in your production store. After your are done with your modifications, you can `promote` your changes to master if you are happy with them, or `reset` your entire workspace if you want to restart. Since we are developing our first awesome component, let's use our own workspace by typing
 ```sh
 $ vtex use {{workspacename}}
 ```
@@ -33,16 +33,16 @@ where `{{workspacename}}` is your favorite name for a workspace
 
 > **NOTE** Make sure this workspace is not used by anyone since your changes here will affect this person. To make such check, run `vtex workspace ls`
 
-You can check your current workspace by entering on `https://{{workspace}}--{{account}}.myvtex.com`. This page is the raw dreamstore having one searchbar, followed by a banner and a shelf. 
+You can check your current workspace by entering on `https://{{workspace}}--{{account}}.myvtex.com`. This page is the raw Dreamstore having one search bar, followed by a banner and a shelf. 
 
 TODO: INSERT FIGURE HERE
 
-The current dreamstore is awesome, but a little customization is always welcome, so let's add our own component bellow the existing shelf. Our component will be a very simple product list showing the available products in the store. Go back to the terminal, create a new host folder and type
+The current Dreamstore is awesome, but a little customization is always welcome, so let's add our own component bellow the existing shelf. Our component will be a very simple product list showing the available products in the store. Go back to the terminal, create a new host folder and type
 ```sh
 $ vtex init
 ```
 
-A selection menu like the one bellow will appear. Choose the `Dreamstore getting started` option and hit enter
+A selection menu like the one bellow will appear. Choose the `Dreamstore getting-started` option and hit enter
 ```sh
 $ vtex init
 info:    Hello! I will help you generate basic files and folders for your app.
@@ -52,11 +52,11 @@ info:    Hello! I will help you generate basic files and folders for your app.
   react+graphql
   hello graphql
   hello react
-> dreamstore getting-started
+> Dreamstore getting-started
   Cancel
 ```
 
-This will clone this [git repo](https://github.com/vtex-apps/dreamstore-getting-started) in the current folder. The generated code contains a simple extension to the dreamstore. 
+This will clone this [git repo](https://github.com/vtex-apps/Dreamstore-getting-started) in the current folder. The generated code contains a simple, yet powerfull, extension to the Dreamstore. 
 
 Another importante concept in IO is linking an app. Linking means transfering all local code to the remote server, where the code will be built, bundled and setup correctely for you. This is a very simple process and can be achieved by
 ```sh
@@ -70,9 +70,9 @@ TODO: IMAGE WITH CHANGES
 Congratulations, you have a working app in VTEX IO ! Easy right ? Keep reading this document to learn more on how to customize the component. 
 
 ## Overview
-VTEX IO is a highly opinionated platform. This means that there is usually one right way of accomplishing what you want to build with the platform. Also our platform prefers standarzation over configuration. This can be seen in the directory layout, containing one folder for each platform build (react, pages, graphql, node) and a `manifest.json`. 
+VTEX IO is a highly opinionated platform. This means that there is usually one right way of accomplishing a task with the platform. Also our platform prefers standarzation over configuration. This can be seen in the directory layout, containing one folder for each platform build (react, pages, graphql, node) and a `manifest.json`. 
 
-The app's manifest contains usual metadata, like name, vendor, description, etc. Also, it contains the dependencies and builders. 
+The app's manifest contains usual metadata, like name, vendor, description, etc. Also, it contains the dependencies, builders and policies. 
 
 Dependencies allow us to reuse Components, Extensions and backends (GraphQL resolvers). Depending on `vtex.store-graphql` allow us to use store related queries for listing and searching for products. 
 
@@ -83,20 +83,20 @@ Builders correspond to the resources nedded for building an app in the platform.
 ## Pages
 For rendering a page, VTEX IO needs meta info on how to properly render it. This meta info is found in `/pages/pages.json`. This file defines the routing resolution policy between extension points and *React* components.
 
-Extension points are literally points of extensions where *React* components can be attached to. For example, to attach the **ListProducts** component to the extension point defined on the product page of dreamstore, add the following code to `pages.json` 
+Extension points are literally points of extensions where *React* components can be attached to. For example, to attach the **ListProducts** component to the extension point defined on the product page of Dreamstore, add the following code to `pages.json` 
 ```json
 "store/product/sections/9": {
   "component": "ListProducts"
 }
 ``` 
 
-This code makes the extension point `store/product/sections/9` routes to the react component **ListProducts**.
+This code makes the extension point `store/product/sections/9` routes to the **React** component **ListProducts**.
 
-Relink the app and click in a product. You should be redirected to the product page. **ListProducts** component should be rendered bellow the `SKU` selector.
+Relink the app with `$ vtex link` and click in a product. You should be redirected to the product page. **ListProducts** component should be rendered bellow the `SKU` selector.
 
 > **NOTE** Extension points are sorted before being rendered, so changing 9 to 0 should make it change order with the `SKU` selector.
 
-> **NOTE\*** You can check all extension poins available in dreamstore [pages](https://github.com/vtex-apps/dreamstore/blob/master/pages/pages.json)
+> **NOTE\*** You can check all extension poins available in Dreamstore [pages](https://github.com/vtex-apps/Dreamstore/blob/master/pages/pages.json)
 
 ## React Component
 The code for the react extension can be found at `/react/ListProduct.js`. It contains the declaration of an ordinary react component. Also, it includes one of the best features VTEX Render provides, an automatic settings schema modifier for in-app setup. In our example this settings schema can be found at 
@@ -124,7 +124,7 @@ Any usefull component needs data. GraphQL is the solution for data fetching insi
 
 Since GraphQL is a strong typed query language, it enables many usefull features and tools. One of these tools is automatic documentation generation and API execution right out of the box with GraphiQL. 
 
-GraphiQL is an IDE for testing and validating GraphQL queries. It can be accessed via `https://{{workspace}}--{{account}}.myvtexdev.com/_v/vtex.dreamstore-getting-started/graphiql/v1` and contains all queries defined in the current app and in its dependencies. Since the getting started app depends on store-graphql, we can query all queries and mutations defined by it. 
+GraphiQL is an IDE for testing and validating GraphQL queries. It can be accessed via `https://{{workspace}}--{{account}}.myvtexdev.com/_v/vtex.Dreamstore-getting-started/graphiql/v1` and contains all queries defined in the current app and in its dependencies. Since the getting started app depends on store-graphql, we can query all queries and mutations defined by it. 
 
 The following query lists all products in the 0-10 range
 ```graphql
