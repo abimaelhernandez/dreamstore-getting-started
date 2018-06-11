@@ -1,6 +1,6 @@
 {
   "extensions": {
-    "store/home/sections/7": {
+    "store/home/container/3": {
       "component": "ListProducts"
     }
   }
