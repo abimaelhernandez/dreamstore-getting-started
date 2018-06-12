@@ -164,12 +164,15 @@ and create an awesome app
 
 Like this project, all **VTEX apps** are open source. Production ready, you can found real-world working examples at: 
 
+- [Store](https://github.com/vtex-apps/store) Is a base structure to any store build using VTEX render. 
 - [Carousel](https://github.com/vtex-apps/carousel)
 - [Shelf](https://github.com/vtex-apps/shelf)
 - [Minicart](https://github.com/vtex-apps/minicart)
 - [Category Menu](https://github.com/vtex-apps/category-menu)
 - [Menu](https://github.com/vtex-apps/menu)
-- [Gallery](https://github.com/vtex-apps/gallery)
+- [Search Result](https://github.com/vtex-apps/search-result)
 - [Product Summary](https://github.com/vtex-apps/product-summary)
 - [Product Details](https://github.com/vtex-apps/product-details)
+- [Login](https://github.com/vtex-apps/login)
+- [Breadcrumb](https://github.com/vtex-apps/breadcrumb)
 - [Storecomponents](https://github.com/vtex-apps/npm-storecomponents)
